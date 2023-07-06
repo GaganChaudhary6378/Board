@@ -25,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+@media (min-width: 768px) {
+  .bg-bg1 {
+    width: 100vw;
+  }
+}
