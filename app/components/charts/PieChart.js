@@ -74,9 +74,9 @@ const PieChart = () => {
   }, []);
 
   return (
-    <div style={{ height: "300px" }}>
+    <div className="h-64 sm:h-96 md:h-80 lg:h-96 md:w-full w-80">
       {Object.keys(chartData).length > 0 && (
-        <Pie data={chartData} options={options} />
+        <Pie data={chartData} options={options}/>
       )}
     </div>
   );

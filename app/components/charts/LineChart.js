@@ -1,8 +1,5 @@
-"use client"
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-// import Chart from "chart.js/auto";
-
 
 const LineChart = () => {
   const [chartData, setChartData] = useState({});
@@ -63,9 +60,15 @@ const LineChart = () => {
   }, []);
 
   return (
-    <div style={{ height: "300px" }}>
+    <div className="h-64 sm:h-72 md:h-80 lg:h-96 md:w-[100%] w-80">
       {Object.keys(chartData).length > 0 && (
-        <Line data={chartData} options={{ maintainAspectRatio: false }} />
+        <Line
+          data={chartData}
+          options={{
+            maintainAspectRatio: false,
+            responsive: true,
+          }}
+        />
       )}
     </div>
   );

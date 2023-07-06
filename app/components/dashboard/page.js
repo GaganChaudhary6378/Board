@@ -8,7 +8,7 @@ export default function dashboard() {
   return (
     <div className="bg-bg1 w-full h-full flex md:flex-row flex-col pb-10">
       <div className="pt-10">
-        <div className="sidebar w-[288px] h-[1000px] bg-[#000] rounded-3xl ml-[40px] flex flex-col font-mont">
+        <div className="sidebar w-[288px] h-[1060px] bg-[#000] rounded-3xl ml-[40px] flex flex-col font-mont">
           <div className="ml-14 mt-[4rem] text-white ">
             <h1 className="font-semibold text-[30px]">Board.</h1>
             <ul className="mt-[3rem] font-mont">
@@ -40,52 +40,60 @@ export default function dashboard() {
           </div>
         </div>
       </div>
-      <div className="ml-12 mt-10">
+      <div className="md:ml-12 ml-8 mt-10">
         <h1 className="text-black font-semibold text-xl">Dashboard</h1>
-        <div className="flex flex-row gap-12 mt-5">
-          <div className="w-[222px] h-[120px] bg-box1 rounded-2xl">
-            <Image
-              src={"/Vector1.svg"}
-              width={28}
-              height={28}
-              className="ml-[11.4rem] mt-3"
-            />
+        <div className="flex md:flex-row flex-col md:gap-12 gap-6 mt-5 dashboard">
+          <div className="flex md:flex-row md:gap-12 gap-6 flex-col">
+            <div className="md:w-[222px] w-[20rem] h-[120px] bg-box1 rounded-2xl">
+              <Image
+                src={"/Vector1.svg"}
+                width={28}
+                height={28}
+                className="md:ml-[11.4rem] ml-[17.5rem] mt-3"
+              />
+            </div>
+            <div className="md:w-[222px] w-[20rem] h-[120px] bg-box2 rounded-2xl">
+              <Image
+                src={"/total_transactions_icon.svg"}
+                width={20}
+                height={20}
+                className="md:ml-[11.4rem] ml-[18rem] mt-3"
+              />
+            </div>
           </div>
-          <div className="w-[222px] h-[120px] bg-box2 rounded-2xl">
-            <Image
-              src={"/total_transactions_icon.svg"}
-              width={20}
-              height={20}
-              className="ml-[11.4rem] mt-3"
-            />
-          </div>
-          <div className="w-[222px] h-[120px] bg-box3 rounded-2xl">
-            <Image
-              src={"/Vector2.svg"}
-              width={20}
-              height={20}
-              className="ml-[11.4rem] mt-3"
-            />
-          </div>
-          <div className="w-[222px] h-[120px] bg-box4 rounded-2xl">
-            <Image
-              src={"/Vector3.svg"}
-              width={28}
-              height={28}
-              className="ml-[11.4rem] mt-3"
-            />
+          <div className="flex md:flex-row md:gap-12 gap-6 flex-col">
+            <div className="md:w-[222px] w-[20rem] h-[120px] bg-box3 rounded-2xl">
+              <Image
+                src={"/Vector2.svg"}
+                width={20}
+                height={20}
+                className="md:ml-[11.4rem] ml-[18rem] mt-3"
+              />
+            </div>
+            <div className="md:w-[222px] w-[20rem] h-[120px] bg-box4 rounded-2xl">
+              <Image
+                src={"/Vector3.svg"}
+                width={28}
+                height={28}
+                className="md:ml-[11.4rem] ml-[17.5rem] mt-3"
+              />
+            </div>
           </div>
         </div>
-        <div className="activities w-[1030px] h-[400px] bg-acti rounded-2xl mt-10">
+        <div className="activities md:w-[1030px] md:h-[430px] h-[360px] bg-acti rounded-2xl mt-10 w-[320px]">
           <h2 className="font-semibold font-mont ml-7 pt-5">Corona Cases</h2>
-                   <LineChart />
-        </div>
-        <div className="flex flex-row gap-[4.4rem] mt-10">
-          <div className="w-[480px] h-[300px] rounded-2xl bg-acti">
-            <h2 className="font-semibold font-mont ml-7 pt-5">Total Cases</h2>
-            <PieChart/>
+          <div className="md:pt-0 pt-5 ">
+            <LineChart />
           </div>
-          <div className="w-[480px] h-[300px] rounded-2xl bg-acti">
+        </div>
+        <div className="flex md:flex-row flex-col md:gap-[4.4rem] gap-10 mt-10">
+          <div className="md:w-[480px] w-[320px] h-[300px] rounded-2xl bg-acti">
+            <h2 className="font-semibold font-mont ml-7 pt-5">Total Cases</h2>
+            <div className="md:pt-0 pt-5">
+              <PieChart />
+            </div>
+          </div>
+          <div className="md:w-[480px] w-[320px] h-[300px] rounded-2xl bg-acti">
             <h2 className="font-semibold font-mont ml-7 pt-5">
               Today’s schedule
             </h2>
