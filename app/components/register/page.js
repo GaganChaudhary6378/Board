@@ -28,7 +28,7 @@ export default function Landing() {
     await fetch(`${process.env.NEXTAUTH_URL}/api/sign`,options)
       .then(res => res.json())
       .then((data) => {
-        if(data) router.push("/")
+        if(data) router.push(`${process.env.NEXTAUTH_URL}`)
       })
     // console.log(values)
   }
