@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useWindowWidth } from "@react-hook/window-size";
-import { useSession, signIn, signOut } from "next-auth/react";
-import HamburgerMenu from "../hamburger/page";
 import LineChart from "../charts/LineChart";
 import PieChart from "../charts/PieChart";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+
 export default function dashboard() {
   const [testedCount, setTestedCount] = useState(0);
   const [vaccinatedCount1, setVaccinatedCount1] = useState(0);
@@ -17,6 +19,10 @@ export default function dashboard() {
   const [isOpen, setIsOpen] = useState(false);
 
   const windowWidth = useWindowWidth();
+
+  const { data: session } = useSession();
+  const [providers, setProviders] = useState(null);
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -59,8 +65,13 @@ export default function dashboard() {
     recoveredCases,
     deceasedCases
   );
+
+  function handleClick() {
+    router.push("/");
+  }
+
   return (
-    <div className="bg-bg1 min-h-screen min-w-full h-full flex md:flex-row flex-col pb-10">
+    <div className="main bg-bg1 min-h-screen min-w-screen h-full md:h-[76vw] flex md:flex-row flex-col pb-10">
       {/* sidebar */}
 
       <div className="md:ml-12 md:mt-[2rem] md:w-[20rem] text-white relative bg-[#000] md:rounded-3xl">
@@ -130,16 +141,51 @@ export default function dashboard() {
             <Image src={"/setting_icon.svg"} width={20} height={20} />
             Settings
           </li>
-          <div className="font-mont md:mt-[20rem]">
+          <div className="font-mont md:mt-[28rem]">
             <h3 className="pb-5">Help</h3>
             <h3>Contact Us</h3>
           </div>
         </ul>
-      </div>
+      </div>  
       {/* till here the sidebar is */}
 
       <div className="md:ml-12 ml-8 mt-10">
-        <h1 className="text-black font-semibold text-xl">Dashboard</h1>
+        <div className="flex md:flex-row flex-col">
+        <h1 className="text-black font-semibold text-xl md:flex-none flex justify-center align-middle">Dashboard</h1>
+          <div className="relative  md:ml-[25rem]">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+            
+            <input
+              type="search"
+              id="default-search"
+              className="block w-[20rem] md:mt-0 md:h-[1rem] p-4 pl-10 text-sm text-gray-900 border-gray-300 rounded-lg bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black"
+              placeholder="Search Cases, Recovered..."
+              required
+            />
+          </div>
+          <button
+            className="md:ml-[5rem] mt-3 md:mt-0 bg-indigo-500 text-white md:w-[6rem] w-[20rem] md:mr-0 md:h-8 h-10 rounded-lg font-mont font-semibold"
+            onClick={handleClick}
+          >
+            SignOut
+          </button>
+        </div>
         <div className="flex md:flex-row flex-col md:gap-12 gap-6 mt-5 dashboard">
           <div className="flex md:flex-row md:gap-12 gap-6 flex-col">
             <div className="md:w-[222px] w-[20rem] h-[120px] bg-box1 rounded-2xl">
@@ -195,20 +241,20 @@ export default function dashboard() {
           </div>
         </div>
         <div className="activities md:w-[1030px] md:h-[430px] h-[360px] bg-acti rounded-2xl mt-10 w-[320px]">
-          <h2 className="font-semibold font-mont ml-7 pt-5">Corona Cases</h2>
+          <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">Corona Cases</h2>
           <div className="md:pt-0 pt-5 ">
             <LineChart />
           </div>
         </div>
         <div className="flex md:flex-row flex-col md:gap-[4.4rem] gap-10 mt-10">
           <div className="md:w-[480px] w-[320px] h-[300px] rounded-2xl bg-acti">
-            <h2 className="font-semibold font-mont ml-7 pt-5">Total Cases</h2>
+            <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">Total Cases</h2>
             <div className="md:pt-0 pt-5">
               <PieChart />
             </div>
           </div>
           <div className="md:w-[480px] w-[320px] h-[300px] rounded-2xl bg-acti">
-            <h2 className="font-semibold font-mont ml-7 pt-5">
+            <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">
               Today’s schedule
             </h2>
             <div className="md:mt-6 mt-2 font-lato ml-7">
