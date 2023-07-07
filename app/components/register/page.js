@@ -25,7 +25,7 @@ export default function Landing() {
       body:JSON.stringify(values)
     }
     console.log(options)
-    await fetch(`${process.env.NEXTAUTH_URL}/api/sign`,options)
+    await fetch(`https://intern-task-phi.vercel.app/api/sign`,options)
       .then(res => res.json())
       .then((data) => {
         if(data) router.push(`${process.env.NEXTAUTH_URL}`)
