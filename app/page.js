@@ -31,7 +31,7 @@ export default function Landing({session}) {
       redirect:false,
       email:values.email,
       password:values.password,
-      callbackUrl:`${process.env.NEXTAUTH_URL}/components/dashboard`
+      callbackUrl:`https://intern-task-phi.vercel.app/components/dashboard`
     })
     console.log(status)
     if(status.ok){

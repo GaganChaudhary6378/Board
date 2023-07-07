@@ -67,7 +67,7 @@ export default function dashboard() {
   );
 
   function handleClick() {
-    router.push(`${process.env.NEXTAUTH_URL}`);
+    router.push(`https://intern-task-phi.vercel.app`);
   }
 
   return (

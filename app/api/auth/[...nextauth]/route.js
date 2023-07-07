@@ -67,7 +67,7 @@ const handler = NextAuth({
               image: profile.picture,
             });
           } else {
-            return `${process.env.NEXTAUTH_URL}/components/dashboard`;
+            return `https://intern-task-phi.vercel.app/components/dashboard`;
           }
         } catch (error) {
           console.log("Error checking if user exists: ", error.message);
