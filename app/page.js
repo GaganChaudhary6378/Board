@@ -31,7 +31,7 @@ export default function Landing({session}) {
       redirect:false,
       email:values.email,
       password:values.password,
-      callbackUrl:'/components/dashboard'
+      callbackUrl:`${process.env.NEXTAUTH_URL}/components/dashboard`
     })
     console.log(status)
     if(status.ok){

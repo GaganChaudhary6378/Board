@@ -67,7 +67,7 @@ export default function dashboard() {
   );
 
   function handleClick() {
-    router.push("/");
+    router.push(`${process.env.NEXTAUTH_URL}`);
   }
 
   return (

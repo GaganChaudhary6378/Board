@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import User from '../../../../models/user';
-import Credentials from 'next-auth/providers/credentials';
+// import Credentials from 'next-auth/providers/credentials';
 import { connectToDB } from '../../../../utils/database';
 import { compare } from 'bcryptjs';
 import Users from '../../../../models/Schema';
@@ -67,7 +67,7 @@ const handler = NextAuth({
               image: profile.picture,
             });
           } else {
-            return '/components/dashboard';
+            return `${process.env.NEXTAUTH_URL}/components/dashboard`;
           }
         } catch (error) {
           console.log("Error checking if user exists: ", error.message);
