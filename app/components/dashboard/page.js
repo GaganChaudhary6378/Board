@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
+import { MdNotifications } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import { useWindowWidth } from "@react-hook/window-size";
 import LineChart from "../charts/LineChart";
@@ -121,23 +122,23 @@ export default function dashboard() {
             isOpen ? "block" : "hidden md:block"
           }`}
         >
-          <li className="flex flex-row gap-3 pb-[40px] md:pb-[3rem] font-bold">
+          <li className="flex flex-row gap-3 pb-[40px] md:pb-[3rem] font-bold hover:cursor-pointer">
             <Image src={"/dashboard_icon.svg"} width={20} height={20} />
             Dashboard
           </li>
-          <li className="flex flex-row gap-3 md:pb-[3rem]  pb-[40px]">
+          <li className="flex flex-row gap-3 md:pb-[3rem] pb-[40px] hover:cursor-pointer">
             <Image src={"/transaction_icon.svg"} width={20} height={20} />
-            Transaction
+            Corona Cases
           </li>
-          <li className="flex flex-row gap-3 md:pb-[3rem]  pb-[40px]">
+          <li className="flex flex-row gap-3 md:pb-[3rem]  pb-[40px] hover:cursor-pointer">
             <Image src={"/schedule_icon.svg"} width={20} height={20} />
-            Schedules
+            Testings
           </li>
-          <li className="flex flex-row gap-3 md:pb-[3rem] pb-[40px]">
+          <li className="flex flex-row gap-3 md:pb-[3rem] pb-[40px] hover:cursor-pointer">
             <Image src={"/user_icon.svg"} width={20} height={20} />
             Users
           </li>
-          <li className="flex flex-row gap-3 pb-[40px]">
+          <li className="flex flex-row gap-3 pb-[40px] hover:cursor-pointer">
             <Image src={"/setting_icon.svg"} width={20} height={20} />
             Settings
           </li>
@@ -146,12 +147,14 @@ export default function dashboard() {
             <h3>Contact Us</h3>
           </div>
         </ul>
-      </div>  
+      </div>
       {/* till here the sidebar is */}
 
       <div className="md:ml-12 ml-8 mt-10">
         <div className="flex md:flex-row flex-col">
-        <h1 className="text-black font-semibold text-xl md:flex-none flex justify-center align-middle">Dashboard</h1>
+          <h1 className="text-black font-semibold text-xl md:flex-none flex justify-center align-middle">
+            Dashboard
+          </h1>
           <div className="relative  md:ml-[25rem]">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
@@ -170,7 +173,7 @@ export default function dashboard() {
                 />
               </svg>
             </div>
-            
+
             <input
               type="search"
               id="default-search"
@@ -179,6 +182,7 @@ export default function dashboard() {
               required
             />
           </div>
+
           <button
             className="md:ml-[5rem] mt-3 md:mt-0 bg-indigo-500 text-white md:w-[6rem] w-[20rem] md:mr-0 md:h-8 h-10 rounded-lg font-mont font-semibold"
             onClick={handleClick}
@@ -241,14 +245,18 @@ export default function dashboard() {
           </div>
         </div>
         <div className="activities md:w-[1030px] md:h-[430px] h-[360px] bg-acti rounded-2xl mt-10 w-[320px]">
-          <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">Corona Cases</h2>
+          <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">
+            Corona Cases
+          </h2>
           <div className="md:pt-0 pt-5 ">
             <LineChart />
           </div>
         </div>
         <div className="flex md:flex-row flex-col md:gap-[4.4rem] gap-10 mt-10">
           <div className="md:w-[480px] w-[320px] h-[300px] rounded-2xl bg-acti">
-            <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">Total Cases</h2>
+            <h2 className="font-semibold font-mont ml-7 pt-5 text-xl">
+              Total Cases
+            </h2>
             <div className="md:pt-0 pt-5">
               <PieChart />
             </div>

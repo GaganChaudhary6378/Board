@@ -17,14 +17,14 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "credentials",
       async authorize(credentials, req) {
-        console.log(credentials);
+        // console.log(credentials);
         await connectToDB().catch(error => {
           throw new Error("Connection Failed...!");
         });
 
         // Check user existence
         const result = await Users.findOne({ email: credentials.email });
-        console.log(result);
+        // console.log(result);
         if (!result) {
           throw new Error("No user found with email. Please Sign Up...!");
         }
@@ -75,7 +75,7 @@ const handler = NextAuth({
         }
       }
 
-      return true; // Return true for non-Google providers
+      return false; // Return false for non-Google providers
     },
   }
 });
