@@ -66,6 +66,7 @@ const handler = NextAuth({
               username: profile.name.replace(" ", "").toLowerCase(),
               image: profile.picture,
             });
+            return `https://intern-task-phi.vercel.app/components/dashboard`;
           } else {
             return `https://intern-task-phi.vercel.app/components/dashboard`;
           }
@@ -75,7 +76,7 @@ const handler = NextAuth({
         }
       }
 
-      return false; // Return false for non-Google providers
+      return true; // Return false for non-Google providers
     },
   }
 });

@@ -99,7 +99,7 @@ export default function Landing({session}) {
 
             <div className="flex flex-row md:mt-4 justify-center gap-2 font-mont">
               <h2 >Don’t have an account?</h2>
-              <Link href={"/components/register"}><h3 className="text-blue-500 hover:underline">Register here</h3></Link>
+              <Link href={"https://intern-task-phi.vercel.app/components/register"}><h3 className="text-blue-500 hover:underline">Register here</h3></Link>
             </div>
           </div>
         </div>
